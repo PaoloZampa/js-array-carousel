@@ -24,5 +24,43 @@ for (let i = 0; i < images.length; i++) {
 
 }
 
-// select all slides
-const slideImages = document.querySelectorAll('.slider > .images > img')
+// seleziono le slides
+const slideImages = document.querySelectorAll('.slider > .images > img');
+
+// click next
+const nextEl = document.querySelector('.next')
+nextEl.addEventListener('click', function () {
+    console.log('cliccato next')
+
+    // selezione slide
+    const currentSlide = slideImages[activeImage]
+    console.log(currentSlide);
+    // rimuovo active
+    currentSlide.classList.remove('active');
+    // incremento
+    activeImage++;
+    // seleziono prossima slide
+    const nextImage = slideImages[activeImage]
+    // aggiungo active
+    console.log(nextImage);
+    nextImage.classList.add('active');
+})
+
+// click prev
+const prevEl = document.querySelector('.prev')
+prevEl.addEventListener('click', function () {
+    console.log('cliccato prev')
+
+    // selezione slide
+    const currentSlide = slideImages[activeImage]
+    console.log(currentSlide);
+    // rimuovo active
+    currentSlide.classList.remove('active');
+    // decremento
+    activeImage--;
+    // select the next slide
+    const nextImage = slideImages[activeImage]
+    // aggiungo active
+    console.log(nextImage);
+    nextImage.classList.add('active');
+})
