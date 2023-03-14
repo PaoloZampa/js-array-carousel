@@ -16,7 +16,12 @@ const imagesElement = document.querySelector('.slider > .images')
 // loop for ciclare immagini
 for (let i = 0; i < images.length; i++) {
     const imgSrc = images[i];
-    const imgElement = `<img class="img-fluid ${i === activeImage ? 'active' : ''}" src="${imgSrc}" alt="">`
+    let imgClasses = "img-fluid";
+    if (i === activeImage) {
+        imgClasses += "active";
+    }
+
+    const imgElement = `<img class="${imgClasses}" src="${imgSrc}" alt="">`
     console.log(imgElement);
 
     //innerHTML
