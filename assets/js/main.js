@@ -4,7 +4,7 @@ const images = [
     './assets/img/02.webp',
     './assets/img/03.webp',
     './assets/img/04.webp',
-    './assets/img/05.webp'
+    './assets/img/05.webp',
 ]
 
 // selezione immagine attiva
@@ -31,7 +31,9 @@ const slideImages = document.querySelectorAll('.slider > .images > img');
 const nextEl = document.querySelector('.next')
 nextEl.addEventListener('click', function () {
     console.log('cliccato next')
-
+    if (activeImage >= slideImages.length) {
+        activeImage = 0;
+    }
     // selezione slide
     const currentSlide = slideImages[activeImage]
     console.log(currentSlide);
@@ -44,13 +46,16 @@ nextEl.addEventListener('click', function () {
     // aggiungo active
     console.log(nextImage);
     nextImage.classList.add('active');
+
 })
 
 // click prev
 const prevEl = document.querySelector('.prev')
 prevEl.addEventListener('click', function () {
     console.log('cliccato prev')
-
+    if (activeImage < 0) {
+        activeImage = slideImages.length - 1;
+    }
     // selezione slide
     const currentSlide = slideImages[activeImage]
     console.log(currentSlide);
@@ -63,4 +68,5 @@ prevEl.addEventListener('click', function () {
     // aggiungo active
     console.log(nextImage);
     nextImage.classList.add('active');
+
 })
